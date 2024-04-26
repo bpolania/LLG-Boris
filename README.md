@@ -31,6 +31,7 @@ brew install mongodb-community
 brew services start mongodb-community
 ```
 Now, MongoDB is installed and running, and you can interact with it using the MongoDB shell, mongo.
+
 6. To stop MongoDB, you can use the following command in your terminal:
 ```
 brew services stop mongodb-community
