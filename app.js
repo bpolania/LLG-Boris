@@ -68,9 +68,9 @@ app.use(passport.session());
 // app.use('/login', login);
 // app.use('/register', register);
 // app.use('/account', account);
-// app.use('/play', play);
+app.use('/play', play);
 // app.use('/api', api);
-app.use('/api', api);
+// app.use('/api', api);
 
 require('./config/errorHandlers.js')(app);
 

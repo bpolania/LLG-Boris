@@ -40,10 +40,22 @@ brew services stop mongodb-community
 ## .env 
 1. rename `sample.env` to `.env`
 2. change `YOUR_PRIVATE_KEY` and add your private key
+3. change `ACCOUNT` and add the account you want to see the balance
 
 ## Usage
 
 1. Start the game: `npm start`
 2. Follow the on-screen instructions to play the game.
+
+## Testing
+
+### Balance
+
+run `curl -X GET "http://localhost:8050/play/llg-balance"` from the console and it will give the balance of the account set in the `ACCOUNT` variable in the `.env` file
+
+### Total Supply 
+
+run `curl -X GET "http://localhost:8050/play/llg-total-supply"` from the console and it will give the total supply
+
 
 

@@ -36,31 +36,34 @@ router.get('/', function(req, res) {
  * GET route to get the balance of LLG tokens for a specific address.
  */
 router.get('/llg-balance', async function(req, res) {
-        try {
-            var address = '0x1234567890123456789012345678901234567890'; // Replace with the desired address
-    
-            var balance = await llgContract.methods.balanceOf(address).call();
-    
-            res.json({ balance: balance });
-        } catch (error) {
-            console.error('Error:', error);
-            res.status(500).json({ error: 'An error occurred' });
-        }
-    });
+    try {
+        var address = process.env.ACCOUNT; // Replace with the desired address in .env file
+
+        var balance = await llgContract.methods.balanceOf(address).call();
+
+        console.log('Balance:', balance.toString());
+
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'An error occurred' });
+    }
+});
     
 /**
  * GET route to get the total supply of LLG tokens.
  */
 router.get('/llg-total-supply', async function(req, res) {
-        try {
-            var totalSupply = await llgContract.methods.totalSupply().call();
-    
-            res.json({ totalSupply: totalSupply });
-        } catch (error) {
-            console.error('Error:', error);
-            res.status(500).json({ error: 'An error occurred' });
-        }
-    });
+    try {
+        var totalSupply = await llgContract.methods.totalSupply().call();
+
+        console.log('Total Supply:', totalSupply.toString());
+
+        res.json({ totalSupply: totalSupply.toString() });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'An error occurred' });
+    }
+});
     
 /**
  * POST route to transfer LLG tokens from one address to another.
